@@ -1,4 +1,6 @@
 #include<iostream>
+#include<string>
+#include<vector>
 #include"Sequence.h"
 using namespace std;
 int main()
@@ -6,6 +8,9 @@ int main()
 	Sequence S("dna.txt");
 	cout << endl;
 	cout<<S.length()<<endl;
-	cout << S.numberOf('A') << endl << S.numberOf('G') << endl << S.numberOf('T') << endl << S.numberOf('C')<<endl;
-	cout<<S.longestConsecutive();
+	cout << S.numberOf('A') << endl << S.numberOf('G') << endl << S.numberOf('T') << endl << S.numberOf('C');
+	string str2;
+	S.longestConsecutive();
+	cout << S.longestConsecutive();
+	
 }

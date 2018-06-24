@@ -13,7 +13,7 @@ public:
 	int numberOf(char base);
 	string longestConsecutive();
 	string longestRepeated();
-	
+	string Repeated(char);
 
 
 
@@ -25,5 +25,4 @@ private:
 	int numofT;
 };
 #endif // !SEQUENCE_H
-
 
