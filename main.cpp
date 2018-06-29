@@ -10,7 +10,7 @@ int main()
 	cout<<S.length()<<endl;
 	cout << S.numberOf('A') << endl << S.numberOf('G') << endl << S.numberOf('T') << endl << S.numberOf('C');
 	string str2;
-	S.longestConsecutive();
-	cout << S.longestConsecutive();
+	cout << S.longestConsecutive()<<endl;
+	cout<<S.longestRepeated();
 	
 }

@@ -1,4 +1,7 @@
 #include"Sequence.h"
+#include<string.h>
+#include"stdlib.h"
+#define MAXCHAR 1200000
 using namespace std;
 Sequence::Sequence(string filename)
 {
@@ -131,9 +134,57 @@ string Sequence::Repeated(char letter)
 }
 
 
+int comlen(char *p, char *q)
+
+{
+	int len = 0;
+	while (*p++ == *q++)
+		++len;
+	return len;
+
+}
+
+int pstrcmp(const void *p, const void *q)
+
+{
+	return strcmp(*(char* const *)p, *(char* const*)q);
+}
+
+
 string Sequence::longestRepeated()
 {
-	string str;
-	
-		return str;
+
+		char *C = new char[MAXCHAR];
+		char**A = new char*[MAXCHAR];
+		ifstream fin("dna.txt", ios::in);
+		if (!fin)
+			cout << "have no file" << endl;
+		int n = 0,index = 0,len,longestlen = 0;
+		while (!fin.eof())
+		{
+
+			A[n] = &C[n];
+			if (fin.peek() != '\n')
+				C[n++] = fin.peek();
+			
+			fin.get();
+		}
+
+		C[n] = '\0';
+		fin.close();
+		qsort(A, n, sizeof(char*), pstrcmp);
+		for (int i = 0; i<n - 1; i++)
+		{
+			len = comlen(A[i], A[i + 1]);
+			if (len>longestlen)
+			{
+				longestlen = len;
+				index = i;
+			}
+		}
+
+		string longestrepeated = A[index];
+		return longestrepeated.substr(0, longestlen);
+
+		
 }
